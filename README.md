@@ -13,7 +13,7 @@
 ## Prerequisites
 
 * NodeJS `0.12` or newer (the latest in the Node 4 series is currently recommended)
-* Elasticsearch 1.7 (support for version 2 and above is not here, yet).
+* Elasticsearch 2.3+ (support for version 1.x has been deprecated).
 
 ## Clone and Install dependencies
 
@@ -119,4 +119,4 @@ $ npm run coverage
 
 ### Continuous Integration
 
-Travis tests every change against node version `0.10`, `0.12`, `4.x`, and `5.x`.
+Travis tests every change against node version `0.12`, `4`, `5` and `6`.
