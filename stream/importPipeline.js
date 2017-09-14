@@ -4,6 +4,9 @@ var categoryDefaults = require('../config/category_map');
 
 var streams = {};
 
+const adminLayers = ['neighbourhood', 'borough', 'locality', 'localadmin',
+  'county', 'macrocounty', 'region', 'macroregion', 'dependency', 'country'];
+
 streams.config = {
   categoryDefaults: categoryDefaults
 };
@@ -27,7 +30,7 @@ streams.import = function(){
     .pipe( streams.docDenormalizer() )
     .pipe( streams.addressExtractor() )
     .pipe( streams.categoryMapper( categoryDefaults ) )
-    .pipe( streams.adminLookup() )
+    .pipe( streams.adminLookup(adminLayers) )
     .pipe( streams.deduper() )
     .pipe( spy.obj(function (doc) {
         logger.verbose(doc.getGid(), doc.getName('default'), doc.getCentroid());
